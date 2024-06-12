@@ -11,18 +11,18 @@ var niveles = [
     {cartasTotales: cartas[0],
     maxMovimientos: 6,
     minutos:0,
-    segundos:10},
+    segundos:15},
     {cartasTotales: cartas[0].concat(cartas[1]),
     maxMovimientos: 10,
     minutos: 1,
-    segundos: 5},
+    segundos: 0},
     {cartasTotales: cartas[0].concat(cartas[1],cartas[2]),
     maxMovimientos: 16,
-    minutos: 2,
-    segundos: 0},
+    minutos: 1,
+    segundos: 15},
     {cartasTotales: cartas[0].concat(cartas[1],cartas[2],cartas[3]),
     maxMovimientos: 20,
-    minutos: 3,
-    segundos: 30}
+    minutos: 1,
+    segundos: 45}
 ];
 
