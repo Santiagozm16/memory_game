@@ -1,0 +1,266 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    margin: 0;
+}
+
+#niveles{
+    position: relative;
+    top: 30vh;
+    display:none;
+}
+.menu{
+    /*position: absolute;
+    top:20px;
+    right: 20px;*/
+    position: relative;
+    top: 30vh;
+    display: none;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    background-color: orange;
+    animation: desplegarMenu 0.5s forwards; /* Aplicamos la animación desplegarMenu */
+    transform-origin: top; /* Establecemos el punto de origen en la parte superior */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    /*z-index: 1;*/
+    
+}
+
+@keyframes desplegarMenu {
+    0% {
+        transform: scaleY(0); /* Empezamos desde 0 en la escala Y */
+    }
+    100% {
+        transform: scaleY(1); /* Llegamos a la escala Y completa */
+    }
+}
+
+@keyframes cerrarMenu {
+    0% {
+        transform: scaleY(1); /* Empezamos desde 0 en la escala Y */
+    }
+    100% {
+        transform: scaleY(0); /* Llegamos a la escala Y completa */
+        display: none;
+    }
+}
+
+.menu ul{
+    list-style: none;
+    padding: 0px 20px;
+}
+
+.menu li{
+    margin: 20px 10px;
+    width: 5em;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+.menu li:hover{
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+}
+
+.mesa {
+  display:none; /*Debe cambiar a flex al iniciar el juego*/
+  position: relative;
+  top:25vh;
+  flex-wrap: wrap; /*Hace que al contraerse la pagina el flexbox se agrupe en filas*/
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+}
+
+.tarjeta {
+    background: linear-gradient(to left, #f28500, #fbb03c 50%, #ffd966);
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    backface-visibility: hidden; /**Oculta la cara trasera del Objeto**/
+    transform-style: preserve-3d; /**Genera un comportamiento 3D en los objetos**/
+    transition: 0.3s;
+}
+
+.tarjeta--contenido{
+    text-align: center;
+    background: rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    transform: rotateY(-180deg);
+    backface-visibility: hidden; /**Oculta la cara trasera del Objeto**/
+}
+/**Tarjeta tiene un color para aparentar que es la cara trasera de la carta
+y el contenido de la carta o la cara con el logotipo se gira 180 grados en Y
+para que se oculte el contenido de la carta, por esto colocamos backfacehidden
+
+Al dar click la clase tarjeta y su div relacionado, giran junto con su contenido 180 grados en Y
+ocultando su cara trasera, pero al girar 180 grados tambien giran el derecho otros 180 grados,
+mostrando la carta al expectador.
+**/
+.destapada{
+    transform: rotateY(-180deg);
+}
+
+@keyframes shake {
+    /*El translate pues lo mueve de izquierda a derecha ,pero es 
+    necesario agregar el rotateY ya que estamos afectando la 
+    transformacion de la carta, si no lo hacemos la carta se volvea
+    durante su tiempo de animación*/
+    0% { transform: rotateY(-180deg) translateX(0); }
+    25% { transform: rotateY(-180deg) translateX(-5px); }
+    50% { transform: rotateY(-180deg) translateX(5px); }
+    75% { transform: rotateY(-180deg) translateX(-5px); }
+    100% { transform: rotateY(-180deg) translateX(0); }
+  }
+  
+.error {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: rotateY(-180deg) scale(1); }
+    50% { transform: rotateY(-180deg) scale(1.1); }
+    100% { transform: rotateY(-180deg) scale(1); }
+}
+
+.acertada {
+    animation: pulse 0.5s 2 alternate;
+}
+
+.cabecera{
+    position: relative;
+    top: 100px;
+    display: none; /*Debe Cambiar a flex al iniciar el juego*/
+    background-color: rgb(241, 241, 241);
+    margin: 10px 20px; 
+    padding: 10px 10px;
+    text-align: center;
+    color: #f28500;
+    box-shadow: 2px 2px 5px rgb(180, 180, 180);
+}
+
+h2{
+    margin: 10px 0px;
+    font-size: 20px;
+    font-family: monospace; 
+}
+
+.reloj{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+
+.cronometro, .contador, .niveles{
+    margin: 10px 20px;
+    /*display: block; cuando no sea modo practica*/
+}
+
+.gameover{
+    position:absolute;
+    display: none; /*Este atributo debe cambiar para mostrar la pantalla cuando se ha terminado el juego debe cambiar a flex*/
+    top:0px;
+    background: linear-gradient(rgb(231, 131, 131), rgb(255, 218, 138));
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-movimientos{
+    position:absolute;
+    display: none; /*Este atributo debe cambiar para mostrar la pantalla cuando se ha terminado el juego debe cambiar a flex*/
+    top:0px;
+    background: linear-gradient(rgb(231, 131, 131), rgb(255, 218, 138));
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.sin-Tiempo{
+    position:absolute;
+    display: none; /*Este atributo debe cambiar para mostrar la pantalla cuando se ha terminado el juego debe cambiar a flex*/
+    top:0px;
+    background: linear-gradient(rgb(231, 131, 131), rgb(255, 218, 138));
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.siguiente-nivel{
+    position:absolute;
+    display: none; /*Este atributo debe cambiar para mostrar la pantalla cuando se ha terminado el juego debe cambiar a flex*/
+    top:0px;
+    background: linear-gradient(rgb(231, 131, 131), rgb(255, 218, 138));
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-ganar{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 40px 15px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+button {
+    margin: 10px;
+    background: linear-gradient( #f28500, #fbb03c 50%, #ffd966);
+    border: none;
+    padding: 12px;
+    font-family: monospace;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    color: black;
+}
+
+.bienvenida{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgb(231, 131, 131), rgb(255, 218, 138));
+    display: flex; /*Debe cambiar a None al iniciar el juego*/
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+.contenedor-bienvenida{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.sonidos{
+    display: none;
+}

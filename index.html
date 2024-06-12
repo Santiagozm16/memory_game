@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>🧠 Juego de Memoria 🧠</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div class="bienvenida">
+            <h1 class="texto"> 🤔🤯¡ Bienvenido al Juego de Memory ! 🧠🎲</h1>
+            <div class="contenedor-bienvenida">
+                <button type="button" id="iniciar"> Iniciar Juego</button>
+                <button type="button" id="practica"> Iniciar Modo Práctica</button>
+            </div>
+        </div>
+        <div class="cabecera" id="cabecera">
+            <div class="contador">
+                <h2>MOVIMIENTOS</h2>
+                <div class="reloj">
+                    <span class="reloj" id="movimientos">00</span>/<span class="reloj" id="maxMovimientos">20</span>
+                </div>
+            </div>
+            <div class="cronometro">
+                <h2>TIEMPO</h2>
+                <div class="reloj">
+                    <span class="reloj" id="minutos">00</span>:<span class="reloj" id="segundos">00</span>
+                </div>
+            </div>
+            <div class="niveles">
+                <h2>NIVEL</h2>
+                <div class="reloj">
+                    <span class="reloj" id="nivel">00</span>
+                </div>
+            </div>
+        </div>
+        <div class="mesa" id="mesa">
+            <div class="tarjeta">
+                <div class="tarjeta--contenido">🎁</div>
+            </div>
+        </div>
+
+        <button id ="niveles" type="button"> NIVELES </button>
+        <div class = "menu">
+            <ul>
+                <li id="nivel-1" data-nivel="0">NIVEL 1</li> <!--La etiqueta data-nivel es personalizada, para acceder a ella se utiliza .dataset en JS-->
+                <li id="nivel-2" data-nivel='1'>NIVEL 2</li>
+                <li id="nivel-3" data-nivel="2">NIVEL 3</li>
+                <li id="nivel-4" data-nivel="3">NIVEL 4</li>
+            </ul>
+        </div>
+
+        <div class="no-movimientos">
+            <div class="contenedor-ganar">
+                <h2>TE HAS QUEDAD SIN MOVIMIENTOS 😔</h2>
+                <button type="button" id="reiniciar"> REINICIAR </button>
+                <button type="button" id="regresar"> VOLVER AL MENÚ </button>
+            </div>
+        </div>
+
+        <div class="sin-Tiempo">
+            <div class="contenedor-ganar">
+                <h2>TE HAS QUEDAD SIN TIEMPO ⏳</h2>
+                <button type="button" id="reiniciar"> REINICIAR </button>
+                <button type="button" id="regresar"> VOLVER AL MENÚ </button>
+            </div>
+        </div>
+
+        <div class="siguiente-nivel">
+            <div class="contenedor-ganar">
+                <h2>FELICITACIONES SIGUE ASÍ</h2>
+                <button type="button" id="siguiente"> SIGUIENTE NIVEL ⏭</button>
+                <button type="button" id="reiniciar" > REINICIAR </button>
+                <button type="button" id="regresar"> VOLVER AL MENÚ </button>
+            </div>
+        </div>
+
+        <div class="gameover">
+            <div class="contenedor-ganar">
+                <h2>FELICITACIONES HAZ GANADO 🏆</h2>
+                <button type="button" id="reiniciar"> REINICIAR </button>
+                <button type="button" id="regresar"> VOLVER AL MENÚ </button>
+            </div>
+        </div>
+        <div class="sonidos"> <!--Aqui cargue los sonidos del juego-->
+            <audio src="sonidos/acierto.mp3" class="sonidos" id="sonido-acierto" preolad="auto"></audio>
+            <audio src="sonidos/carta.mp3" class="sonidos" id="sonido-carta" preload="auto"></audio>
+            <audio src="sonidos/error.mp3" class="sonidos" id="sonido-error" preload="auto"></audio>
+        </div>
+    <script src="js/variables-globales.js"></script>
+    <script src="js/agregar-repartir.js"></script>
+    <script src="js/destapar-comparar.js"></script>
+    <script src="js/finalizar.js"></script>
+    <script src="js/acertada-noAcierto.js"></script>
+    <script src="js/actualizar-nivel.js"></script>
+    <script src="js/cronometro.js"></script>
+    <script src="js/movimientos.js"></script>
+    <script src="js/iniciar.js"></script>
+    <script src="js/dom.js"></script>
+    </body>
+</html>
