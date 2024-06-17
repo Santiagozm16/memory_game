@@ -13,5 +13,6 @@ function actualizarNivel() {
         siguiente_nivel.style.display = 'flex';
         document.querySelector("#nivel").innerHTML = nivelMostrar;
         document.getElementById("mesa").style.display = "none";
+        document.getElementById("cabecera").style.display = "none";
     },1000);
 }

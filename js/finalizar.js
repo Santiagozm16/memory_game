@@ -3,6 +3,7 @@ function finalizar(){
     setTimeout(function(){
         feedback.style.display = 'flex';
         document.getElementById("mesa").style.display = "none";
+        document.getElementById("cabecera").style.display = "none";
         //console.log(feedback);
     },1000);
 }
@@ -13,6 +14,7 @@ function noMovimientos(){
         setTimeout(function(){
             feedback.style.display = 'flex';
             document.getElementById("mesa").style.display = "none";
+            document.getElementById("cabecera").style.display = "none";
             //console.log(feedback);
         },1000);
     }
@@ -23,5 +25,6 @@ function sinTiempo(){
         var feedback = document.querySelector(".sin-Tiempo");
         feedback.style.display = 'flex';
         document.getElementById("mesa").style.display = "none";
+        document.getElementById("cabecera").style.display = "none";
     }
 }
