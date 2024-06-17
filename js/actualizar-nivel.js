@@ -12,5 +12,6 @@ function actualizarNivel() {
     setTimeout(function(){
         siguiente_nivel.style.display = 'flex';
         document.querySelector("#nivel").innerHTML = nivelMostrar;
+        document.getElementById("mesa").style.display = "none";
     },1000);
 }
